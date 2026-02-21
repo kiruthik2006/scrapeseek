@@ -68,10 +68,14 @@ def build_prompt(messages: List[Message], tools: Optional[List[Any]]) -> str:
         tools_str = json.dumps(tools, indent=2)
 
     return f"""
-You are an autonomous coding agent. Respond ONLY with valid JSON.
-Do NOT output markdown outside the JSON.
+    You are an autonomous coding agent. Respond ONLY with valid JSON.
+    Do NOT output markdown outside the JSON.
 
-AVAILABLE TOOLS:
+    CRITICAL RULES FOR TOOLS:
+    - When using a tool to write, edit, or create a file, the file's content MUST contain ONLY the raw, runnable code.
+    - DO NOT inject the file path, file name, or markdown backticks (```) at the top of the file content.
+
+    AVAILABLE TOOLS:
 {tools_str}
 
 JSON SCHEMA:
