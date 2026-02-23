@@ -106,7 +106,7 @@ wait = WebDriverWait(driver, 60)
 
 print("Waiting for login + textarea...")
 wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'textarea[placeholder="Message DeepSeek"]')))
-print("✅ Browser Connected & API Ready!")
+print("Browser Connected & API Ready!")
 
 # Lock to prevent concurrent requests from typing at the same time
 browser_lock = threading.Lock()
@@ -156,7 +156,7 @@ def chat_completions(req: ChatCompletionRequest):
             textarea.send_keys(Keys.BACKSPACE)
             textarea.send_keys(Keys.ENTER)
 
-            print("\n⏳ Waiting for AI to finish thinking and start responding...")
+            print("\nWaiting for AI to finish thinking and start responding...")
 
             # 3. Wait for DeepThink to finish and grab the final container
             latest_container = None
@@ -189,7 +189,7 @@ def chat_completions(req: ChatCompletionRequest):
                 time.sleep(0.25)
 
             # 5. Extract, Repair, and Validate the JSON (WITH FALLBACK)
-            print(f"✅ AI finished generating! Raw output length: {len(previous_text)}")
+            print(f"AI finished generating! Raw output length: {len(previous_text)}")
 
             json_block = extract_json(previous_text)
 
@@ -246,7 +246,7 @@ def chat_completions(req: ChatCompletionRequest):
                 "usage": {"prompt_tokens": 100, "completion_tokens": 50, "total_tokens": 150}
             }
 
-            print(f"📤 Agent requested streaming: {req.stream}")
+            print(f"Agent requested streaming: {req.stream}")
 
             # 🔥 THE FIX: If the agent wants a stream, we fake one!
             if req.stream:
@@ -283,7 +283,7 @@ def chat_completions(req: ChatCompletionRequest):
 
             # If the agent didn't ask for a stream, return standard JSON
             else:
-                print("📤 Sending exact payload back to Agent (No Stream):")
+                print("Sending exact payload back to Agent (No Stream):")
                 print(json.dumps(final_response, indent=2))
                 return final_response
 
