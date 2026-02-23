@@ -53,9 +53,11 @@ pip install -r requirements.txt
 
 ### Start the API Server
 
+The api_v3.py has auto login features in it. but the env file must be initialised beforehand.
+
 **Option A: Using uvicorn (recommended)**
 ```bash
-uvicorn api:app --host 0.0.0.0 --port 8000
+uvicorn api_v2:app --host 0.0.0.0 --port 8000
 ```
 
 **Option B: Run directly**
