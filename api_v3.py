@@ -73,11 +73,12 @@ def build_prompt(messages: List[Message], tools: Optional[List[Any]]) -> str:
 {agent_system_instruction}
 
 <<< API BRIDGE INSTRUCTIONS >>>
-You are operating within a strict automated agent framework.
-1. You MUST respond with a SINGLE, valid JSON object. No conversational filler.
-2. DO NOT wrap the JSON in markdown code blocks outside of the required structure.
-3. If you write code, the string inside your JSON MUST contain ONLY the raw, runnable code. DO NOT include markdown backticks (```) or language tags inside the code string.
-4. NEVER output UI artifacts like "Copy" or "Download".
+You are operating within a strict automated machine-to-machine API.
+1. ABSOLUTELY NO CONVERSATIONAL FILLER. You must output ONLY a valid JSON object.
+2. DO NOT start your response with phrases like "I have analyzed...", "Here is...", or "Now that...".
+3. Your response MUST begin immediately with the `{{` character and end with the `}}` character.
+4. DO NOT wrap the JSON in markdown code blocks (no ```json).
+5. NEVER output UI artifacts like "Copy" or "Download".
 
 <<< AVAILABLE TOOLS >>>
 {tools_str}
