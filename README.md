@@ -46,7 +46,7 @@ This project aims to make it easier for users to transform Deepseek web chat int
 
 1. Run the script to convert Deepseek web chat into an agentic API:  
    ```bash
-   python scrapeseek.py
+   python api_v5.py
    ```
 
 2. Follow the prompts provided by the script to integrate and test with OpenAI-compatible APIs.
