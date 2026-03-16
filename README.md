@@ -46,7 +46,8 @@ This project aims to make it easier for users to transform Deepseek web chat int
 
 1. Run the script to convert Deepseek web chat into an agentic API:  
    ```bash
-   python api_v5.py
+   uvicorn api_v5:app --host 0.0.0.0 --port 8000 --reload
+
    ```
 
 2. Follow the prompts provided by the script to integrate and test with OpenAI-compatible APIs.
