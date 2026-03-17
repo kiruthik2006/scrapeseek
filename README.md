@@ -41,6 +41,11 @@ This project aims to make it easier for users to transform Deepseek web chat int
    ```bash
    pip install -r requirements.txt
    ```
+   Then create a .env file in the main folder like this:
+   ```bash
+   DS_EMAIL=<your>@gmail.com
+   DS_PASSWORD=<Password>
+   ```
 
 ## Usage
 
