@@ -290,7 +290,7 @@ def chat_completions(req: ChatCompletionRequest):
                 driver.execute_script("window._deepseekStreamFinished = false;")
                 textarea.send_keys(Keys.ENTER)
 
-                print(f"\n⚡ Attempt {attempt + 1}: Network Wiretap Active! Waiting for raw data stream...")
+                print(f"\n Attempt {attempt + 1}: Network Wiretap Active! Waiting for raw data stream...")
 
                 start_time = time.time()
 
@@ -309,7 +309,7 @@ def chat_completions(req: ChatCompletionRequest):
                 clean_text = re.sub(r'<think>.*?</think>', '', raw_text, flags=re.DOTALL | re.IGNORECASE).strip()
                 clean_text = re.sub(r'<think>.*$', '', clean_text, flags=re.DOTALL | re.IGNORECASE).strip()
 
-                print(f"✅ Raw Data Sniped! Length: {len(clean_text)}")
+                print(f" Raw Data Sniped! Length: {len(clean_text)}")
 
                 # 🧠 THE GENIUS USER TRIGGER: Check if DeepSeek choked and returned 0 bytes
                 if len(clean_text) == 0:
